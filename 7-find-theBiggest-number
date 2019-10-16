@@ -1,0 +1,38 @@
+// Program is finding the biggest number given by keyboard
+// #znajdź największą liczbę C++ / #biggest number C++
+
+
+#include <iostream>
+
+using namespace std;
+
+int liczba [3];
+
+int main()
+{
+    cout << "Give me three number and i will check which is the biggest : " << endl;
+
+    for (int i=0; i<3; i++)
+    {
+        cout<<"give "<< i+1 <<" number: ";
+        cin>> liczba[i];
+    }
+
+    cout<<"Given number is : "<<liczba[0]<<", "<<liczba[1]<<", "<<liczba[2]<<endl<<endl;
+
+   if ((liczba[0]>=liczba[1]) && (liczba[0]>=liczba[2]))
+      cout<<"The biggest number is "<<liczba[0];
+
+// second "else if" will start only if the first does not execute
+
+   else if ((liczba[1]>=liczba[0]) && (liczba[1]>=liczba[2]))
+      cout<<"The biggest number is "<<liczba[1];
+
+// the third "else if" start only if first and second "if" will be false
+
+   else if ((liczba[2]>=liczba[1]) && (liczba[2]>=liczba[0]))
+      cout<<"The biggest number is "<<liczba[2]<<endl;
+
+
+    return 0;
+}
