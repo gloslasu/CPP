@@ -1,0 +1,25 @@
+// Wypisuje danego Stringa n razy
+// #wypisz n razy C++
+
+
+#include <iostream>
+
+using namespace std;
+
+string imie; int n;
+
+int main()
+{
+    cout << "Podaj swe imie: " << endl;
+    cin>> imie;
+
+    cout<< "podaj dodatnia liczbe calkowita"<<endl;
+    cin>> n;
+
+    for (int i=1; i<=n; i++)
+    {
+        cout<< i<<". "<< imie<<endl;
+    }
+
+    return 0;
+}
