@@ -1,0 +1,44 @@
+// #Program w C++ symulujący rzut kostką.
+// Możemy zmienić w kodzie ilość boków koski raz ilość rzutów.
+
+
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+#include <windows.h>
+
+using namespace std;
+
+int liczba;
+
+class Kosc
+{
+public: // pozwoli nam uzyskac dostep do wnetrza klasy wszystkim funkcjom w programie
+
+    int boki = 6; // liczba bokow kosci
+
+    int wynik_rzutu ;
+
+    void rzuc()
+    {
+
+    srand(time(NULL));
+
+       for (int i=1; i<=1; i++) // rzucimy tylko raz
+        {
+            wynik_rzutu = rand()%6+1;
+            cout<<wynik_rzutu<<endl; // pokazujemy wynik rzutu
+        }
+    }
+
+};
+
+int main()
+{
+    Kosc k1;
+
+    k1.rzuc(); //rzucamy kostką o 6 bokach i pokazujemy wynik rzutu
+
+    return 0;
+}
+
