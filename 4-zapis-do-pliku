@@ -1,0 +1,31 @@
+// W pliku wizytowka.txt zapisujemy wprowadzane z klawiatury dane. Jesli plik wizytowka.txt nie istnieje to zostanie utworzony.
+// #zapis do pliku C++
+
+#include <iostream>
+#include <fstream> // potrzebna do wspólpracy z plikami
+
+using namespace std;
+
+string imie, nazwisko;
+int nrtel;
+
+int main()
+{
+    cout << "podaj imie :";           cin>> imie;
+    cout << "podaj nazwisko:  ";      cin>> nazwisko;
+    cout << "podaj numer telefonu :"; cin>> nrtel;
+
+    fstream plik; // od teraz komputer wie ze nasz plik nazywamy "file"
+    plik.open("wizytowka.txt", ios::out | ios::app); // operator kropki mówi ze funkcja open ma byc wywolana na rzecz zmiennej plikowej file
+    // (w pierwszym argumencie wpisujemy sciezke do pliku, a w drugim tryb otwarcia)
+    // ios::out oznacza input output stream out czyli wyprowadz, czyli pokieruj strumieñ danych z naszego programu do pliku
+    // jesli wizytowka nie istalaby to by zostala utworzona , jesli plik wizyówka istnialby to przy zapisie zmiennej automatycznie plik bylby zastapiony
+
+    plik<< imie<<endl;
+    plik<< nazwisko<<endl;
+    plik<< nrtel<<endl;
+
+    plik.close();
+
+    return 0;
+}
