@@ -1,0 +1,27 @@
+// Program sprawdza czy podany przez uzytkownika kod pin jest identyczny z tym zapisanym w programie.
+// #walidjacja kodu PIN C++
+
+
+#include <iostream>
+
+using namespace std;
+
+string pin;
+
+int main()
+{
+    cout << "Witaj w naszym banku :)" << endl;
+    cout<< "Podaj kod PIN: "<< endl;
+    cin>> pin;
+
+    if(pin=="4202") 
+    {
+        cout<< "Poprawny PIN"; 
+    }
+    else
+    {
+        cout<< "Niepoprawny PIN";
+    }
+
+    return 0;
+}
