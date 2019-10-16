@@ -1,0 +1,72 @@
+# Komputer losuje liczbę z podanego zakresu a Ty masz za zadanie zgadnąć jaka liczba została wylosowana. 
+# Dopuki nie zgadniesz komputer podpowie Ci czy podana przez ciebie liczba jest mniejsza czy większa od wylosowanej. 
+# Zadanie jest z kursu Mirosława Zelenta na YT. 
+
+
+#include <iostream>
+#include <time.h> // pozwala na pobranie czasu z systemu
+#include <cstdlib> // potrzebna do modulo
+#include <stdio.h>
+
+using namespace std;
+
+// posix - czas unixowy liczony w sekundach  od 1970 r. od pó³nocy
+// reszta z dzielenia liczby 1229 przez 100 tj. ile razy 100 miesci sie w 1229 ?
+// miesci sie 12 razy : 12*100=1200, reszty 29
+// modulo to jest reszta z dnielenia oznacza siê % procentem w c++
+/* s- liczba sekund ktore uplynely od 1970 do momentu uruchomienia programu
+ b (umowna nazwa b moze byc lub d itp.)  tj. pewna stala ktora dodajemy do s
+
+ (s+b)% n
+ n zakres losowanych liczb
+
+ s+b dzielimy przez zakres losowanych liczb, chodzi o podanie najwiekszej mozliwej liczby z tego zakrezy +1
+
+ x1 = (s+b) % n
+ x2 = (s*x1+b) % n
+ x3 = (s*x2+b) % n
+ x1..x2...xn - kolejne wylosowane liczby losowe
+*/
+
+int liczba, strzal, ileprob=0;
+
+int main()
+{
+    cout << "Zgadnij jaka liczba wylosowal komputer z zakresu 1-100" << endl;
+    srand(time(NULL)); // NULL pobierz liczbe sekund ktora uplynela od 1970 do momentu wywolania tej linijki, do aktualnego czasu w systemie
+    liczba = rand()%100+1;
+
+    while (liczba!=strzal) // puki strzal jest rozny od wylosowanej liczby to petla while sie wykonuje
+    {
+        ileprob++;
+
+        cout << "Wpisz na klawiaturze liczbe i zatwierdz enterem zeby sie przekonac czy zgadles. To Twoja "<< ileprob<< " proba "<<endl;
+        cin>> strzal;
+
+        if (strzal==liczba)
+            cout<< "zgadles w "<< ileprob << " probie" <<endl;
+
+        else if (strzal<liczba)
+            cout<< "to za malo"<<endl;
+
+        else if (strzal>liczba)
+            cout<< "to za duzo"<<endl;
+
+        }
+
+        getchar(); getchar();
+// zeby nie znikało okienko po uruchomieniu pliku exe :
+        // tutaj byśmy wpisali system("pouse"); czyli dopuki ktos by nie wcisnol klawisza to okienko by nie znikło. funkcja zatrzymuje znikajace okienko na ekranie
+        // bez wyswietlania komunikatu zatrzymuje na ekranie okienko funkcja getchar(); pobierz znak
+        // ale do get char trzeba dodac bibljoteke #include <stdio.h>
+
+    return 0;
+}
+
+/* za % podajemy liczbe o 1 wieksza niz maksimum naszego przedzialu
+    komputer zawsze wylosuje liczbe z przedzialu od 0 do tej co podamy w x minus 1
+    liczba = rand ()% x
+    wylosuje z przedzialu od 0...x-1
+    -1 bo reszta z dzielenia przez te liczbe musi byc zawsze mniejsza od tej liczby
+    c++ kurs 4 TY 8min 30 sek - wytlumaczone % na innym przykladzie
+    */
